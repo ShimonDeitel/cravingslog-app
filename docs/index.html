@@ -8,7 +8,31 @@ h1 { color:#ce4d44; font-size:2rem; }
 a { color:#ce4d44; }
 p { line-height:1.6; color:#ccc; text-align:left; }
 .badge { display:inline-block; padding:6px 14px; border:1px solid #ce4d44; border-radius:999px; color:#ce4d44; margin-bottom:24px; }
-</style></head><body><div class="wrap">
+
+  @keyframes floatOrb {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    50% { transform: translate(30px,-40px) scale(1.08); }
+  }
+  @keyframes fadeUp {
+    from { opacity:0; transform: translateY(16px); }
+    to { opacity:1; transform: translateY(0); }
+  }
+  .orb {
+    position: fixed; top: -120px; right: -120px; width: 420px; height: 420px;
+    background: radial-gradient(circle, #ce4d4455 0%, #ce4d4400 70%);
+    filter: blur(10px); pointer-events: none; z-index: 0;
+    animation: floatOrb 9s ease-in-out infinite;
+  }
+  .wrap { position: relative; z-index: 1; }
+  h1 { animation: fadeUp 0.8s ease-out both; }
+  p.tagline { animation: fadeUp 0.8s ease-out 0.15s both; }
+  .feature { animation: fadeUp 0.8s ease-out both; transition: transform 0.25s ease; }
+  .feature:nth-of-type(1) { animation-delay: 0.3s; }
+  .feature:nth-of-type(2) { animation-delay: 0.45s; }
+  .feature:hover { transform: translateY(-3px); }
+  footer { animation: fadeUp 0.8s ease-out 0.6s both; }
+</style></head><body>
+<div class="orb"></div><div class="wrap">
 <div class="badge">Cravings Log</div>
 <h1>Cravings Log</h1>
 <p>Logs food or substance cravings with intensity and outcome to spot patterns over time.</p>
