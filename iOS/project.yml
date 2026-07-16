@@ -35,7 +35,6 @@ targets:
     platform: iOS
     sources:
       - path: CravingsLogTests
-      - path: CravingsLog.storekit
     dependencies:
       - target: CravingsLog
     settings:
